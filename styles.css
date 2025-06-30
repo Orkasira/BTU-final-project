@@ -1,0 +1,148 @@
+body {
+  background-color: #1a1a1a;
+  margin: 0 163px;
+  font-family: "Barlow";
+}
+
+header {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  padding: 14px 28px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #262626;
+  border-radius: 8px;
+}
+
+.contact {
+  height: 60px;
+  padding: 0px 24px;
+  background-color: #9eff00;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.contact:hover {
+  opacity: 60%;
+}
+
+.title-container {
+  max-width: 1596px;
+  width: 100%;
+  height: 410px;
+  display: flex;
+  margin-top: 112px;
+  margin-bottom: 234px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 68px;
+  font-weight: 600;
+  width: 800px;
+}
+
+.what-for {
+  display: flex;
+  padding: 24px 40px;
+  align-items: center;
+  gap: 6px;
+  border-radius: 12px;
+  border: 1px solid #262626;
+  background: rgba(36, 36, 36, 0.2);
+  backdrop-filter: blur(6px);
+  margin-top: 40px;
+}
+
+.what-for p {
+  color: #98989a;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.what-for p strong {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #262626;
+  color: white;
+}
+
+.btns {
+  display: flex;
+  gap: 13px;
+  margin-top: 50px;
+}
+
+.works {
+  padding: 18px 28px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: rgba(36, 36, 36, 0.2);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.works:hover {
+  background: rgba(24, 24, 24, 0.575);
+}
+
+.title-container img {
+  width: 100%;
+  bottom: -236px;
+  height: 448px;
+  position: absolute;
+  z-index: -1;
+}
+
+.trusted {
+  padding: 20px 34px;
+  gap: 10px;
+  position: absolute;
+  left: 43%;
+  top: 805px;
+  border-radius: 100px;
+  border: 1px solid #262626;
+  background: #1a1a1a;
+  color: #fdfffa;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.programs {
+  margin-top: 55px;
+  max-width: 1594px;
+  height: 170px;
+  border: 1px solid #262626;
+  background: rgba(36, 36, 36, 0.2);
+}
