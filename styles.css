@@ -156,15 +156,20 @@ h1 {
   height: auto;
 }
 
-.service {
-  padding: 120px 0;
-  filter: saturate(20%);
-  position: relative;
-  background: rgb(16, 26, 1);
+.sevice {
+  max-width: 100%;
 }
 
 .service-text {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(./images/Text\ Container.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  background-size: cover;
   text-align: center;
+
+  padding: 120px 0;
 }
 
 .service-text h2 {
@@ -180,4 +185,75 @@ h1 {
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.108px;
+}
+
+.box {
+  display: flex;
+  max-width: 100%;
+}
+
+.cards {
+  padding: 50px;
+  max-width: 100%;
+  min-height: 577px;
+  border: solid #262626 1px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cards img {
+  width: 60px;
+  height: 60px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #2e2e2e;
+  background: linear-gradient(
+      229deg,
+      rgba(158, 255, 0, 0.2) -68.25%,
+      rgba(158, 255, 0, 0) 32.16%
+    ),
+    linear-gradient(180deg, #242424 0%, rgba(36, 36, 36, 0) 100%);
+}
+
+.cards h2 {
+  align-self: stretch;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 45px;
+  letter-spacing: -0.18px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.cards p {
+  align-self: stretch;
+  color: #e6e6e6;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.108px;
+}
+
+.cards button {
+  display: flex;
+  padding: 18px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #262626;
+  border: none;
+  color: white;
+  width: 100%;
+  margin-top: 104px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.cards button:hover {
+  background-color: white;
+  color: black;
 }
