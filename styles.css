@@ -12,12 +12,12 @@ header {
   align-items: center;
 }
 
-nav ul {
+header nav ul {
   display: flex;
   align-items: center;
 }
 
-nav ul li a {
+header nav ul li a {
   color: white;
   font-size: 18px;
   font-weight: 600;
@@ -26,7 +26,7 @@ nav ul li a {
   transition: 0.3s;
 }
 
-nav ul li a:hover {
+header nav ul li a:hover {
   background-color: #262626;
   border-radius: 8px;
 }
@@ -448,4 +448,129 @@ h1 {
 .frequently-card.active .frequently-nums p,
 .frequently-card.active .frequently-nums .btn {
   color: #9eff00;
+}
+
+footer {
+  margin: 20px 0;
+  width: min(100%, 1596px);
+  padding: 50px 0;
+}
+
+.footer-navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer nav ul {
+  display: flex;
+  align-items: center;
+}
+
+footer nav ul li a {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  padding: 14px 28px;
+  transition: 0.3s;
+}
+
+footer nav ul li a:hover {
+  background-color: #262626;
+  border-radius: 8px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 402px;
+  border-radius: 12px;
+  border: 1px solid var(--Grey-15, #262626);
+  padding: 15px;
+}
+
+.footer-social p {
+  margin-right: 6px;
+  color: #e6e6e6;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.footer-social img {
+  border-radius: 8px;
+  border: 1px solid #2e2e2e;
+  background: linear-gradient(180deg, #242424 0%, rgba(36, 36, 36, 0) 100%);
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background-color: #262626;
+  margin-top: 66px;
+}
+
+.footer-contact-links {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 40px;
+}
+
+.mail-tel-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #262626;
+  padding: 20px 0;
+}
+
+.mail-tel-location a {
+  color: #e6e6e6;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  transition: 0.4s;
+}
+
+.mail-tel-location a:hover {
+  color: #e6e6e685;
+}
+
+span {
+  color: #98989a;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* display: none; */
+  z-index: 999;
+}
+
+#scrollToTopBtn:hover {
+  background: #555;
 }
