@@ -4,10 +4,10 @@ document.querySelectorAll(".frequently-card").forEach((item) => {
   item.querySelector(".frequently-nums").addEventListener("click", () => {
     const isActive = item.classList.contains("active");
 
-    if (isActive) {
-      item.classList.remove("active");
-      item.querySelector(".btn").textContent = "+";
-    }
+    document.querySelectorAll(".frequently-card").forEach((i) => {
+      i.classList.remove("active");
+      i.querySelector(".btn").textContent = "+";
+    });
 
     if (!isActive) {
       item.classList.add("active");
@@ -20,7 +20,6 @@ document.querySelectorAll(".frequently-card").forEach((item) => {
 
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-// Function to show/hide button based on scroll
 function toggleScrollBtn() {
   if (window.scrollY > 600) {
     scrollToTopBtn.style.display = "block";
@@ -29,13 +28,8 @@ function toggleScrollBtn() {
   }
 }
 
-// Run when scrolling
 window.addEventListener("scroll", toggleScrollBtn);
 
-// ALSO run once on page load (to fix button showing after refresh)
-window.addEventListener("load", toggleScrollBtn);
-
-// Scroll to top smoothly on click
 scrollToTopBtn.addEventListener("click", () => {
   window.scrollTo({
     top: 0,

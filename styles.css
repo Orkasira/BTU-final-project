@@ -561,16 +561,16 @@ span {
   bottom: 30px;
   right: 30px;
   padding: 10px 15px;
-  font-size: 16px;
-  background: #333;
+  font-size: 18px;
+  background: linear-gradient(to top, #202020 10%, #696969);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  /* display: none; */
+  display: none;
   z-index: 999;
 }
 
 #scrollToTopBtn:hover {
-  background: #555;
+  background: linear-gradient(to bottom, #202020 10%, #696969);
 }
