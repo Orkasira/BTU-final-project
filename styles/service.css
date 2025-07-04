@@ -1,0 +1,49 @@
+body {
+  background-color: #1a1a1a;
+  margin: 0 auto;
+  font-family: "Barlow";
+  width: min(100%, 1596px);
+}
+
+header {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+}
+
+header nav ul li a {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  padding: 14px 28px;
+  transition: 0.3s;
+}
+
+header nav ul li a:hover {
+  background-color: #262626;
+  border-radius: 8px;
+}
+
+.contact {
+  height: 60px;
+  padding: 0px 24px;
+  background-color: #9eff00;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.contact:hover {
+  opacity: 60%;
+}
