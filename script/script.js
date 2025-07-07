@@ -1,3 +1,53 @@
+// burgerBar
+document.addEventListener('DOMContentLoaded', function () {
+  const burger = document.getElementById('burgerBtn');
+  const nav = document.getElementById('mainNav');
+
+  function openMenu() {
+    burger.classList.add('open');
+    nav.classList.add('open');
+  }
+
+  function closeMenu() {
+    burger.classList.remove('open');
+    nav.classList.remove('open');
+  }
+
+  if (burger && nav) {
+    burger.addEventListener('click', function () {
+      if (nav.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // ლინკზე დაჭერით მენიუ დაიხუროს
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        closeMenu();
+      });
+    });
+
+    // მენიუს გარეთ დაკლიკებისას დაიხუროს მენიუ
+    document.addEventListener('click', function(e) {
+      if (
+        nav.classList.contains('open') &&
+        !nav.contains(e.target) &&
+        !burger.contains(e.target)
+      ) {
+        closeMenu();
+      }
+    });
+    // ფანჯრის ზომის შეცვლისას მენიუ დაიხუროს
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 1024) {
+        closeMenu();
+      }
+    });
+  }
+});
+
 // frequently სექციაზე კლიკის დროს ტექსტის ჩამოშლა
 
 document.querySelectorAll(".frequently-card").forEach((item) => {

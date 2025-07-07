@@ -1,0 +1,15 @@
+@media (max-width: 480px){
+
+    .square-card h4{
+        font-size: 20px;
+        
+    }
+
+    .footer-social{
+        flex-direction: column;
+    }
+
+    .frequently-card{
+        padding: 15px 25px;
+    }
+}
