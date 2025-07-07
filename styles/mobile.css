@@ -1,15 +1,18 @@
-@media (max-width: 480px){
+@media (max-width: 480px) {
+  .square-card h4 {
+    font-size: 20px;
+  }
 
-    .square-card h4{
-        font-size: 20px;
-        
-    }
+  .trusted {
+    top: 920px;
+    left: 6%;
+  }
 
-    .footer-social{
-        flex-direction: column;
-    }
+  .footer-social {
+    flex-direction: column;
+  }
 
-    .frequently-card{
-        padding: 15px 25px;
-    }
+  .frequently-card {
+    padding: 15px 25px;
+  }
 }

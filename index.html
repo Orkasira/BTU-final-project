@@ -6,10 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./styles/pcminscreen.css">
-    <link rel="stylesheet" href="./styles/laptop.css">
-    <link rel="stylesheet" href="./styles/tablet.css">
-    <link rel="stylesheet" href="./styles/mobile.css">
+    <link rel="stylesheet" href="./styles/pcminscreen.css" />
+    <link rel="stylesheet" href="./styles/laptop.css" />
+    <link rel="stylesheet" href="./styles/tablet.css" />
+    <link rel="stylesheet" href="./styles/mobile.css" />
     <script src="./script/script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -20,7 +20,12 @@
     <header>
       <img src="./images/Logo.png" alt="" />
       <div class="burger-bar">
-        <button class="burger" id="burgerBtn" aria-label="Open menu" type="button">
+        <button
+          class="burger"
+          id="burgerBtn"
+          aria-label="Open menu"
+          type="button"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -60,12 +65,16 @@
       <div class="trusted">Trusted By 250+ Companies</div>
 
       <section class="programs">
-        <img src="./images/zapier.png" alt="zapier" />
-        <img src="./images/spotify.png" alt="spotify" />
-        <img src="./images/zoom.png" alt="zoom" />
-        <img src="./images/slark.png" alt="slark" />
-        <img src="./images/amazon.png" alt="amazon" />
-        <img src="./images/adobe.png" alt="adobe" />
+        <div>
+          <img src="./images/zapier.png" alt="zapier" />
+          <img src="./images/spotify.png" alt="spotify" />
+          <img src="./images/zoom.png" alt="zoom" />
+        </div>
+        <div>
+          <img src="./images/slark.png" alt="slark" />
+          <img src="./images/amazon.png" alt="amazon" />
+          <img src="./images/adobe.png" alt="adobe" />
+        </div>
       </section>
 
       <section class="service">
@@ -325,9 +334,9 @@
         <div class="footer-social">
           <p>Stay Connected</p>
           <div class="footer-soc-links">
-          <a href="#"><img src="./images/fb.svg" alt="facebook link" /></a>
-          <a href="#"><img src="./images/tw.svg" alt="twiter link" /></a>
-          <a href="#"><img src="./images/ig.svg" alt="linkedin link" /></a>
+            <a href="#"><img src="./images/fb.svg" alt="facebook link" /></a>
+            <a href="#"><img src="./images/tw.svg" alt="twiter link" /></a>
+            <a href="#"><img src="./images/ig.svg" alt="linkedin link" /></a>
           </div>
         </div>
       </div>
@@ -353,9 +362,21 @@
             >
           </div>
         </div>
-        <span>© 2023 SquareUp. All rights reserved.</span>
+        <span class="useless">© 2023 SquareUp. All rights reserved.</span>
       </div>
     </footer>
+    <div id="privacy-banner">
+      <div class="banner-content">
+        <p class="banner-message">
+          Accepting cookies helps us give you a smoother browsing experience.
+          Would you like to proceed?
+        </p>
+        <div class="banner-actions">
+          <button id="accept-privacy" class="butn agree">Agree</button>
+          <button id="decline-privacy" class="butn disagree">Disagree</button>
+        </div>
+      </div>
+    </div>
     <button id="scrollToTopBtn">↑ Top</button>
   </body>
 </html>
