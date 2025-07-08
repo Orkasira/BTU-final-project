@@ -39,4 +39,8 @@
   .service-cards:hover {
     transform: translateY(-8px);
   }
+
+  .form-content {
+    padding: 20px;
+  }
 }

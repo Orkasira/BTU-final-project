@@ -1,59 +1,3 @@
-// რუკის გამოსატანი კოდი (OpenStreetMap + Leaflet + Fetch)
-document.addEventListener("DOMContentLoaded", function () {
-  const mapDiv = document.getElementById("map");
-  if (mapDiv) {
-    // Leaflet-ის სტილის ჩასმა
-    if (!document.getElementById("leaflet-css")) {
-      const link = document.createElement("link");
-      link.id = "leaflet-css";
-      link.rel = "stylesheet";
-      link.href = "https://unpkg.com/leaflet/dist/leaflet.css";
-      document.head.appendChild(link);
-    }
-    // Leaflet-ის სკრიპტის ჩასმა
-    if (!document.getElementById("leaflet-js")) {
-      const script = document.createElement("script");
-      script.id = "leaflet-js";
-      script.src = "https://unpkg.com/leaflet/dist/leaflet.js";
-      script.onload = function () {
-        showMap();
-      };
-      document.body.appendChild(script);
-    } else {
-      showMap();
-    }
-
-    function showMap() {
-      // Fetch-ით ვიღებთ კოორდინატებს
-      const city = "Tbilisi";
-      fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (!data || !data[0]) {
-            mapDiv.innerHTML = "ვერ მოიძებნა ლოკაცია";
-            return;
-          }
-          const lat = data[0].lat;
-          const lon = data[0].lon;
-          mapDiv.style.height = "350px";
-          mapDiv.style.borderRadius = "16px";
-          // რუკის ჩატვირთვა მიღებული კოორდინატებით
-          const map = L.map("map").setView([lat, lon], 13);
-          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: "&copy; OpenStreetMap",
-            maxZoom: 18,
-          }).addTo(map);
-          L.marker([lat, lon])
-            .addTo(map)
-            .bindPopup(`<b>${city}</b>`)
-            .openPopup();
-        })
-        .catch((error) => {
-          mapDiv.innerHTML = "დაფიქსირდა შეცდომა ლოკაციის წამოღებისას";
-        });
-    }
-  }
-});
 // burgerBar
 document.addEventListener("DOMContentLoaded", function () {
   const burger = document.getElementById("burgerBtn");
@@ -371,4 +315,130 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
     }
   });
+});
+
+// Map output code (OpenStreetMap + Leaflet + Fetch)
+document.addEventListener("DOMContentLoaded", function () {
+  const mapDiv = document.getElementById("map");
+  if (mapDiv) {
+    if (!document.getElementById("leaflet-css")) {
+      const link = document.createElement("link");
+      link.id = "leaflet-css";
+      link.rel = "stylesheet";
+      link.href = "https://unpkg.com/leaflet/dist/leaflet.css";
+      document.head.appendChild(link);
+    }
+
+    if (!document.getElementById("leaflet-js")) {
+      const script = document.createElement("script");
+      script.id = "leaflet-js";
+      script.src = "https://unpkg.com/leaflet/dist/leaflet.js";
+      script.onload = function () {
+        setupMapSearch();
+      };
+      document.body.appendChild(script);
+    } else {
+      setupMapSearch();
+    }
+
+    function setupMapSearch() {
+      const searchContainer = document.createElement("div");
+      searchContainer.style.margin = "60px 0 0 0";
+      searchContainer.style.display = "flex";
+      searchContainer.style.gap = "8px";
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "city name...";
+      input.style.flex = "1";
+      input.style.padding = "8px";
+      input.style.borderRadius = "8px";
+      input.style.border = "1px solid #ccc";
+      const button = document.createElement("button");
+      button.textContent = "search";
+      button.style.padding = "8px 16px";
+      button.style.borderRadius = "8px";
+      button.style.border = "none";
+      button.style.background = "#222";
+      button.style.color = "#fff";
+      button.style.cursor = "pointer";
+      searchContainer.appendChild(input);
+      searchContainer.appendChild(button);
+      mapDiv.parentNode.insertBefore(searchContainer, mapDiv);
+
+      let mapInstance = null;
+      let marker = null;
+
+      function showMap(city) {
+        fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+            city
+          )}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (!data || !data[0]) {
+              if (!mapDiv.querySelector(".map-error")) {
+                const errorMsg = document.createElement("div");
+                errorMsg.className = "map-error";
+                errorMsg.textContent = "location not found";
+                errorMsg.style.color = "red";
+                errorMsg.style.margin = "12px 0";
+                errorMsg.style.fontWeight = "bold";
+                mapDiv.parentNode.insertBefore(errorMsg, mapDiv.nextSibling);
+                setTimeout(() => {
+                  if (errorMsg.parentNode)
+                    errorMsg.parentNode.removeChild(errorMsg);
+                }, 2500);
+              }
+              return;
+            }
+
+            const prevError = mapDiv.parentNode.querySelector(".map-error");
+            if (prevError) prevError.remove();
+            const lat = data[0].lat;
+            const lon = data[0].lon;
+            mapDiv.style.height = "500px";
+            mapDiv.style.borderRadius = "16px";
+            if (!mapInstance) {
+              mapInstance = L.map("map").setView([lat, lon], 13);
+              L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+                  attribution: "&copy; OpenStreetMap",
+                  maxZoom: 18,
+                }
+              ).addTo(mapInstance);
+            } else {
+              mapInstance.setView([lat, lon], 13);
+              if (marker) {
+                mapInstance.removeLayer(marker);
+              }
+            }
+            marker = L.marker([lat, lon])
+              .addTo(mapInstance)
+              .bindPopup(`<b>${city}</b>`)
+              .openPopup();
+          })
+          .catch((error) => {
+            mapDiv.innerHTML =
+              "An error occurred while retrieving the location.";
+          });
+      }
+
+      showMap("Tbilisi");
+
+      button.addEventListener("click", function () {
+        const city = input.value.trim();
+        if (city) {
+          showMap(city);
+        }
+      });
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          button.click();
+        }
+      });
+    }
+  }
 });

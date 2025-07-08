@@ -47,4 +47,8 @@
   .footer-contact {
     flex-direction: column;
   }
+
+  .form-content {
+    padding: 50px;
+  }
 }

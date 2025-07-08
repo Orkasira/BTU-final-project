@@ -437,15 +437,20 @@ footer nav ul li a:hover {
   right: 30px;
   padding: 10px 15px;
   font-size: 18px;
-  background: linear-gradient(to top, #202020 10%, #696969);
-  color: white;
+  background-color: #b4ff00;
+  color: #000;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.4s ease;
   cursor: pointer;
   display: none;
   z-index: 999;
 }
 
 #scrollToTopBtn:hover {
-  background: linear-gradient(to bottom, #202020 10%, #696969);
+  background-color: #d4ff39;
+  box-shadow: 0 0 20px #b4ff00, 0 0 5px #d4ff39;
 }
