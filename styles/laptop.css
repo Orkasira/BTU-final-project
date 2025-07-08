@@ -7,7 +7,7 @@
     max-width: 320px;
     height: 100vh;
     background: #888;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.08);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -23,7 +23,7 @@
     flex-direction: column;
     gap: 40px;
     width: 100%;
-        align-items: center;
+    align-items: center;
   }
   .burger {
     display: flex;
@@ -38,8 +38,21 @@
   .desktop-contact {
     display: none;
   }
+
+  .contact-us-btn {
+    display: none;
+  }
+
   nav#mainNav .nav-contact {
     display: block;
+  }
+
+  .cont-btn {
+    display: block;
+    width: 200px;
+    padding: 17px 30px;
+    color: black;
+    margin-left: -21px;
   }
 
   .nav-contact {
@@ -49,7 +62,7 @@
     text-align: center;
   }
 
-  h1{
+  h1 {
     font-size: 60px;
     width: 700px;
   }
@@ -66,25 +79,24 @@
   }
   .what-for p strong {
     padding: 12px 14px;
-  border-radius: 8px;
-  background: #262626;
-  color: white;
+    border-radius: 8px;
+    background: #262626;
+    color: white;
   }
 
-  .trusted{
+  .trusted {
     left: 30%;
   }
 
-  .square-first{
+  .square-first {
     display: flex;
     flex-direction: column;
   }
 
-  .square-second{
+  .square-second {
     display: flex;
     flex-direction: column;
   }
-
 
   .frequently-boxes {
     display: flex;
@@ -94,10 +106,21 @@
     padding: 24px 0;
   }
 
-  .frequently-first{
+  .frequently-first {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;}
+    gap: 24px;
+  }
+
+  .footer-navigation {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .service-two {
+    display: flex;
+    flex-direction: column;
+  }
 }

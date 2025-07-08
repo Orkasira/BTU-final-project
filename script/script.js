@@ -22,14 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // ლინკზე დაჭერით მენიუ დაიხუროს
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", function (e) {
         closeMenu();
       });
     });
 
-    // მენიუს გარეთ დაკლიკებისას დაიხუროს მენიუ
     document.addEventListener("click", function (e) {
       if (
         nav.classList.contains("open") &&
@@ -39,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         closeMenu();
       }
     });
-    // ფანჯრის ზომის შეცვლისას მენიუ დაიხუროს
+
     window.addEventListener("resize", function () {
       if (window.innerWidth > 1024) {
         closeMenu();
@@ -71,7 +69,7 @@ document.querySelectorAll(".frequently-card").forEach((item) => {
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 function toggleScrollBtn() {
-  if (window.scrollY > 600) {
+  if (window.scrollY > 700) {
     scrollToTopBtn.style.display = "block";
   } else {
     scrollToTopBtn.style.display = "none";
@@ -87,47 +85,51 @@ scrollToTopBtn.addEventListener("click", () => {
   });
 });
 
-// Privacy Policy Banner
-const popup = document.getElementById("privacy-banner");
-const acceptBtn = document.getElementById("accept-privacy");
-const declineBtn = document.getElementById("decline-privacy");
+// Privacy Banner cookie logic
+window.addEventListener("DOMContentLoaded", function () {
+  const banner = document.getElementById("privacy-banner");
+  const overlay = document.getElementById("privacy-overlay");
+  const accept = document.getElementById("accept-privacy");
+  const decline = document.getElementById("decline-privacy");
 
-const PRIVACY_KEY = "PRIVACYConsentTime";
+  const PRIVACY_KEY = "PRIVACYConsentTime";
+  const ACCEPTED_KEY = "privacyAccepted";
 
-function shouldShowPopup() {
-  const storedTime = localStorage.getItem(PRIVACY_KEY);
-  if (!storedTime) return true;
+  function showPrivacyPopup() {
+    if (banner) banner.style.display = "block";
+    if (overlay) overlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
 
-  const lastConsentTime = parseInt(storedTime, 10);
-  const currentTime = new Date().getTime();
+  function hidePrivacyPopup() {
+    if (banner) banner.style.display = "none";
+    if (overlay) overlay.style.display = "none";
+    document.body.style.overflow = "";
+  }
 
-  return currentTime - lastConsentTime > 60000; // 1 minute
-}
+  function shouldShowPopup() {
+    const storedTime = localStorage.getItem(PRIVACY_KEY);
+    if (!storedTime) return true;
+    const lastConsentTime = parseInt(storedTime, 10);
+    const currentTime = new Date().getTime();
+    return currentTime - lastConsentTime > 60000; // 1 minute
+  }
 
-// Show/hide popup
-function showPopup() {
-  popup.style.display = "block";
-}
+  function acceptPrivacy() {
+    const currentTime = new Date().getTime();
+    localStorage.setItem(PRIVACY_KEY, currentTime.toString());
+    hidePrivacyPopup();
+  }
 
-function hidePopup() {
-  popup.style.display = "none";
-}
+  function declinePrivacy() {
+    hidePrivacyPopup();
+    window.location.href = "https://google.com";
+  }
 
-// On "I Agree"
-acceptBtn.addEventListener("click", () => {
-  const currentTime = new Date().getTime();
-  localStorage.setItem(PRIVACY_KEY, currentTime.toString());
-  hidePopup();
-});
+  if (accept) accept.onclick = acceptPrivacy;
+  if (decline) decline.onclick = declinePrivacy;
 
-// On "I Disagree"
-declineBtn.addEventListener("click", () => {
-  window.location.href = "https://google.com";
-});
-
-// On page load
-window.addEventListener("load", () => {
   if (shouldShowPopup()) {
-    showPopup();
+    showPrivacyPopup();
   }
 });

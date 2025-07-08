@@ -163,6 +163,14 @@ header nav ul li a:hover {
   margin: 50px 0;
 }
 
+.engine {
+  max-width: 350px;
+}
+
+.project {
+  max-width: 440px;
+}
+
 .service-title {
   color: #98989a;
   font-size: 28px;
@@ -173,6 +181,12 @@ header nav ul li a:hover {
 
 .service-box {
   display: flex;
+  flex: 1;
+}
+
+.service-two {
+  display: flex;
+  flex: 1;
 }
 
 .service-cards {
@@ -181,12 +195,25 @@ header nav ul li a:hover {
   flex-direction: column;
   align-items: flex-start;
   gap: 30px;
-  flex: 1 0 0;
+  flex: 1;
   border: 1px solid #262626;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.service-cards:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px 0 rgba(60, 60, 120, 0.15),
+    0 1.5px 8px 0 rgba(0, 0, 0, 0.08);
+  background: linear-gradient(120deg, #232e1b 0%, #2b3a2e 100%);
 }
 
 .service-icon {
   display: flex;
+  width: 80px;
+  height: 80px;
   padding: 24px;
   flex-direction: column;
   align-items: flex-start;
@@ -317,6 +344,91 @@ footer nav ul li a:hover {
   font-size: 18px;
   font-weight: 400;
   line-height: 27px;
+}
+
+#privacy-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.3);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  display: none;
+}
+
+#privacy-banner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a1a;
+  border: 1px solid #262626;
+  padding: 32px 36px;
+  border-radius: 16px;
+  z-index: 1001;
+  min-width: 320px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px 0 rgba(60, 60, 120, 0.15),
+    0 1.5px 8px 0 rgba(0, 0, 0, 0.08);
+  display: none;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.banner-message {
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.butn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.butn.agree {
+  background: #9eff00;
+  color: #262626;
+}
+
+.butn.agree:hover {
+  background: #67a700;
+  color: #ffffff;
+}
+
+.butn.disagree {
+  background: #1a1a1a;
+  color: #999;
+  border: 1px solid #262626;
+}
+
+.butn.disagree:hover {
+  background: #262626;
+  color: #fff;
 }
 
 #scrollToTopBtn {

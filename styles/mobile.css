@@ -3,6 +3,13 @@
     font-size: 20px;
   }
 
+  .cont-btn {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
   .trusted {
     top: 920px;
     left: 6%;
@@ -14,5 +21,22 @@
 
   .frequently-card {
     padding: 15px 25px;
+  }
+
+  .service-box {
+    flex-direction: column;
+  }
+
+  .design-title {
+    font-size: 40px;
+  }
+
+  .design-para {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .service-cards:hover {
+    transform: translateY(-8px);
   }
 }

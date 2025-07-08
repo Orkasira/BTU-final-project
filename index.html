@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>SquareUp</title>
+    <link
+      rel="shortcut icon"
+      href="./images/Mainlogo.svg"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./styles/pcminscreen.css" />
@@ -18,7 +23,7 @@
   </head>
   <body>
     <header>
-      <img src="./images/Logo.png" alt="" />
+      <a href="#"><img src="../images/Logo.png" alt="" /></a>
       <div class="burger-bar">
         <button
           class="burger"
@@ -35,14 +40,17 @@
             <li><a href="#">Home</a></li>
             <li><a href="./pages/service.html">Services</a></li>
             <li><a href="#">Work</a></li>
-            <li><a href="#">Process</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Careers</a></li>
           </ul>
-          <button class="contact nav-contact" type="button">Contact Us</button>
+          <button class="contact nav-contact" type="button">
+            <a href="./pages/contactPage.html" class="cont-btn">Contact Us</a>
+          </button>
         </nav>
       </div>
-      <button class="contact desktop-contact" type="button">Contact Us</button>
+      <a href="./pages/contactPage.html" class="contact-us-btn"
+        ><button class="contact desktop-contact" type="button">
+          Contact Us
+        </button></a
+      >
     </header>
 
     <main>
@@ -57,7 +65,9 @@
         </div>
         <div class="btns">
           <button class="works">Our Works</button>
-          <button class="contact">Contact Us</button>
+          <a href="./pages/contactPage.html"
+            ><button class="contact" type="button">Contact Us</button></a
+          >
         </div>
         <img src="./images/Abstract Design.png" alt="" />
       </section>
@@ -326,9 +336,6 @@
             <li><a href="#">Home</a></li>
             <li><a href="./pages/service.html">Services</a></li>
             <li><a href="#">Work</a></li>
-            <li><a href="#">Process</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Careers</a></li>
           </ul>
         </nav>
         <div class="footer-social">
@@ -365,6 +372,7 @@
         <span class="useless">© 2023 SquareUp. All rights reserved.</span>
       </div>
     </footer>
+    <div id="privacy-overlay"></div>
     <div id="privacy-banner">
       <div class="banner-content">
         <p class="banner-message">
