@@ -1,3 +1,59 @@
+// რუკის გამოსატანი კოდი (OpenStreetMap + Leaflet + Fetch)
+document.addEventListener("DOMContentLoaded", function () {
+  const mapDiv = document.getElementById("map");
+  if (mapDiv) {
+    // Leaflet-ის სტილის ჩასმა
+    if (!document.getElementById("leaflet-css")) {
+      const link = document.createElement("link");
+      link.id = "leaflet-css";
+      link.rel = "stylesheet";
+      link.href = "https://unpkg.com/leaflet/dist/leaflet.css";
+      document.head.appendChild(link);
+    }
+    // Leaflet-ის სკრიპტის ჩასმა
+    if (!document.getElementById("leaflet-js")) {
+      const script = document.createElement("script");
+      script.id = "leaflet-js";
+      script.src = "https://unpkg.com/leaflet/dist/leaflet.js";
+      script.onload = function () {
+        showMap();
+      };
+      document.body.appendChild(script);
+    } else {
+      showMap();
+    }
+
+    function showMap() {
+      // Fetch-ით ვიღებთ კოორდინატებს
+      const city = "Tbilisi";
+      fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (!data || !data[0]) {
+            mapDiv.innerHTML = "ვერ მოიძებნა ლოკაცია";
+            return;
+          }
+          const lat = data[0].lat;
+          const lon = data[0].lon;
+          mapDiv.style.height = "350px";
+          mapDiv.style.borderRadius = "16px";
+          // რუკის ჩატვირთვა მიღებული კოორდინატებით
+          const map = L.map("map").setView([lat, lon], 13);
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "&copy; OpenStreetMap",
+            maxZoom: 18,
+          }).addTo(map);
+          L.marker([lat, lon])
+            .addTo(map)
+            .bindPopup(`<b>${city}</b>`)
+            .openPopup();
+        })
+        .catch((error) => {
+          mapDiv.innerHTML = "დაფიქსირდა შეცდომა ლოკაციის წამოღებისას";
+        });
+    }
+  }
+});
 // burgerBar
 document.addEventListener("DOMContentLoaded", function () {
   const burger = document.getElementById("burgerBtn");
@@ -238,3 +294,81 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Contact form validation
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", function (e) {
+    let valid = true;
+
+    // First Name validation
+    const fname = document.getElementById("fname");
+    const errorFname = document.getElementById("error-fname");
+    if (!fname.value.trim()) {
+      errorFname.textContent = "First name is required";
+      valid = false;
+    } else if (!/^[a-zA-Zა-ჰ]+$/.test(fname.value.trim())) {
+      errorFname.textContent = "Only letters allowed";
+      valid = false;
+    } else {
+      errorFname.textContent = "";
+    }
+
+    // Last Name validation
+    const lname = document.getElementById("lname");
+    const errorLname = document.getElementById("error-lname");
+    if (!lname.value.trim()) {
+      errorLname.textContent = "Last name is required";
+      valid = false;
+    } else if (!/^[a-zA-Zა-ჰ]+$/.test(lname.value.trim())) {
+      errorLname.textContent = "Only letters allowed";
+      valid = false;
+    } else {
+      errorLname.textContent = "";
+    }
+
+    // Email validation
+    const email = document.getElementById("email");
+    const errorEmail = document.getElementById("error-email");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim()) {
+      errorEmail.textContent = "Email is required";
+      valid = false;
+    } else if (!emailPattern.test(email.value.trim())) {
+      errorEmail.textContent = "Invalid email address";
+      valid = false;
+    } else {
+      errorEmail.textContent = "";
+    }
+
+    // Password validation
+    const password = document.getElementById("password");
+    const errorPassword = document.getElementById("error-password");
+    if (!password.value.trim()) {
+      errorPassword.textContent = "Password is required";
+      valid = false;
+    } else if (password.value.length < 6) {
+      errorPassword.textContent = "Password must be at least 6 characters";
+      valid = false;
+    } else {
+      errorPassword.textContent = "";
+    }
+
+    // Message validation
+    const message = document.getElementById("message");
+    const errorMessage = document.getElementById("error-message");
+    if (!message.value.trim()) {
+      errorMessage.textContent = "Message is required";
+      valid = false;
+    } else if (message.value.trim().length < 10) {
+      errorMessage.textContent = "Message must be at least 10 characters";
+      valid = false;
+    } else {
+      errorMessage.textContent = "";
+    }
+
+    if (!valid) {
+      e.preventDefault();
+    }
+  });
+});

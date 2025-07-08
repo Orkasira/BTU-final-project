@@ -153,7 +153,6 @@ header nav ul li a:hover {
 
 .form-container {
   width: min(100%, 1596px);
-  padding: 0px 268px;
   border: 1px solid #262626;
 }
 
@@ -161,6 +160,8 @@ header nav ul li a:hover {
   border-radius: 12px;
   padding: 80px;
   border: 1px solid #262626;
+  margin: 0 auto;
+  width: min(100%, 1060px);
 }
 
 .field-group {
@@ -253,6 +254,7 @@ input[type="checkbox"] {
   margin-bottom: 0;
   overflow: visible;
 }
+
 .range-track input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -378,6 +380,10 @@ input[type="checkbox"] {
   border: none;
 }
 
+input[type="range"]::-webkit-slider-thumb {
+  margin-top: 10px;
+}
+
 .submit-btn {
   display: block;
   width: 120px;
@@ -431,6 +437,120 @@ input[type="checkbox"] {
 }
 .toggle-password:hover {
   color: #d7ff63;
+}
+
+.frequently-container {
+  width: min(100%, 1596px);
+}
+
+.frequently-text {
+  width: 100%;
+  padding: 120px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../images/Text\ Container.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.frequently-text h2 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.frequently-text p {
+  align-self: stretch;
+  color: #e6e6e6;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.108px;
+}
+
+.frequently-boxes {
+  display: flex;
+  padding: 80px 0;
+  border: solid #262626 1px;
+}
+
+.frequently-first {
+  width: 50%;
+}
+
+.frequently-card {
+  padding: 30px 50px;
+  max-width: 798px;
+  width: 100%;
+  min-height: 140px;
+  border: solid #262626 1px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.frequently-card h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 42px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid #2e2e2e;
+  background: linear-gradient(180deg, #242424 0%, rgba(36, 36, 36, 0) 100%);
+}
+
+.frequently-card p {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 33px;
+  margin-left: 30px;
+}
+
+.frequently-nums {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn {
+  font-size: 34px;
+  padding: 10px;
+  color: white;
+}
+
+.frequently-content {
+  color: #e6e6e6;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: center;
+  margin-top: 40px;
+  display: none;
+}
+
+.frequently-card.active .frequently-content {
+  display: block;
+}
+
+.frequently-card.active .frequently-nums h3,
+.frequently-card.active .frequently-nums p,
+.frequently-card.active .frequently-nums .btn {
+  color: #9eff00;
+}
+
+#map {
+  margin-top: 50px;
+  height: 350px;
+  width: 100%;
 }
 
 footer {
