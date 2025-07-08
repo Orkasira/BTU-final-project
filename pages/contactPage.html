@@ -53,6 +53,168 @@
       >
     </header>
 
+    <main>
+      <section class="contact-text">
+        <h2>Contact Us</h2>
+        <p>
+          Get in touch with us today and let us help you with any questions or
+          inquiries you may have.
+        </p>
+      </section>
+
+      <section class="main-contact">
+        <div class="main-mail-tel-location">
+          <img src="../images/mail.svg" alt="" />
+          <a href="mailto:hello@squareup.com" target="_blank"
+            >hello@squareup.com</a
+          >
+        </div>
+        <div class="main-mail-tel-location">
+          <img src="../images/tel.svg" alt="" />
+          <a href="tel:+91 91813 23 2309" target="_blank">+91 91813 23 2309</a>
+        </div>
+        <div class="main-mail-tel-location">
+          <img src="../images/loc.svg" alt="" />
+          <a
+            href="https://www.google.com/maps/place/Business+and+Technology+University/@41.7065697,44.738667,849m/data=!3m2!1e3!4b1!4m6!3m5!1s0x40447344e8047ced:0xb53d8ecd4495903f!8m2!3d41.7065697!4d44.738667!16s%2Fg%2F11c1rtb70k?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            >Somewhere in the World</a
+          >
+        </div>
+      </section>
+
+      <section class="form-container">
+        <form
+          class="form-content"
+          id="contactForm"
+          autocomplete="off"
+          novalidate
+        >
+          <div class="field-group">
+            <div class="field">
+              <label for="fname">First Name</label>
+              <input
+                type="text"
+                id="fname"
+                name="fname"
+                placeholder="Type here"
+                required
+              />
+              <small class="error" id="error-fname"></small>
+            </div>
+            <div class="field">
+              <label for="lname">Last Name</label>
+              <input
+                type="text"
+                id="lname"
+                name="lname"
+                placeholder="Type here"
+                required
+              />
+              <small class="error" id="error-lname"></small>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Type here"
+              required
+            />
+            <small class="error" id="error-email"></small>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Type here"
+              required
+            />
+            <div class="password-wrapper">
+              <button type="button" id="togglePassword" class="toggle-password">
+                Show
+              </button>
+            </div>
+            <small class="error" id="error-password"></small>
+          </div>
+
+          <div class="field">
+            <label>Why are you contacting us?</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="reason" value="web" /> Web Design
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="reason" value="app" /> Mobile App
+                Design
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="reason" value="collab" />
+                Collaboration
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="reason" value="other" /> Others
+              </label>
+            </div>
+          </div>
+
+          <div class="field budget">
+            <label>Your Budget</label>
+            <small>Slide to indicate your budget range</small>
+            <div class="range-track">
+              <input
+                type="range"
+                min="0"
+                max="10000"
+                id="budget-min"
+                name="budget-min"
+                value="1000"
+                step="1"
+                class="budget-range"
+                aria-label="Minimum budget"
+              />
+              <input
+                type="range"
+                min="0"
+                max="10000"
+                id="budget-max"
+                name="budget-max"
+                value="5000"
+                step="1"
+                class="budget-range"
+                aria-label="Maximum budget"
+              />
+              <div class="budget-values">
+                <span id="budget-value-min" class="budget-value">$1000</span>
+                <span id="budget-value-max" class="budget-value">$5000</span>
+              </div>
+            </div>
+            <div class="budget-labels"></div>
+          </div>
+
+          <div class="field">
+            <label for="message">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Type here"
+              required
+            ></textarea>
+            <small class="error" id="error-message"></small>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </section>
+    </main>
+
     <footer>
       <div class="footer-navigation">
         <img src="../images/Logo.png" alt="" />

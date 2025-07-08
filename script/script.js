@@ -133,3 +133,108 @@ window.addEventListener("DOMContentLoaded", function () {
     showPrivacyPopup();
   }
 });
+
+// password visibility toggle
+
+document.addEventListener("DOMContentLoaded", function () {
+  const password = document.getElementById("password");
+  const togglePassword = document.getElementById("togglePassword");
+  if (togglePassword && password) {
+    togglePassword.addEventListener("click", function () {
+      if (password.type === "password") {
+        password.type = "text";
+        togglePassword.textContent = "Hide";
+      } else {
+        password.type = "password";
+        togglePassword.textContent = "Show";
+      }
+    });
+  }
+});
+
+//budget value slider
+document.addEventListener("DOMContentLoaded", function () {
+  const budgetInput = document.getElementById("budget");
+  const budgetValue = document.getElementById("budget-value");
+  if (budgetInput && budgetValue) {
+    function setBudgetValuePosition() {
+      const min = parseInt(budgetInput.min, 10);
+      const max = parseInt(budgetInput.max, 10);
+      const val = parseInt(budgetInput.value, 10);
+      const percent = (val - min) / (max - min);
+      const thumbWidth = 32;
+      budgetValue.style.left = `calc(${percent * 100}% - ${thumbWidth / 2}px)`;
+      budgetValue.textContent = `$${val}`;
+    }
+    function updateOnEvent() {
+      requestAnimationFrame(setBudgetValuePosition);
+    }
+    setBudgetValuePosition();
+    budgetInput.addEventListener("input", updateOnEvent);
+    budgetInput.addEventListener("mousedown", updateOnEvent);
+    budgetInput.addEventListener("mousemove", updateOnEvent);
+    budgetInput.addEventListener("touchstart", updateOnEvent);
+    budgetInput.addEventListener("touchmove", updateOnEvent);
+    window.addEventListener("resize", updateOnEvent);
+  }
+});
+
+// Dual-thumb budget slider
+document.addEventListener("DOMContentLoaded", function () {
+  const minInput = document.getElementById("budget-min");
+  const maxInput = document.getElementById("budget-max");
+  const minValue = document.getElementById("budget-value-min");
+  const maxValue = document.getElementById("budget-value-max");
+  const rangeTrack = document.querySelector(".range-track");
+  if (minInput && maxInput && minValue && maxValue && rangeTrack) {
+    const minGap = 1;
+    function setBudgetPositions(e) {
+      let min = parseInt(minInput.value, 10);
+      let max = parseInt(maxInput.value, 10);
+      const minLimit = parseInt(minInput.min, 10);
+      const maxLimit = parseInt(maxInput.max, 10);
+
+      if (e && e.target === minInput && min > max - minGap) {
+        min = max - minGap;
+        minInput.value = min;
+      }
+      if (e && e.target === maxInput && max < min + minGap) {
+        max = min + minGap;
+        maxInput.value = max;
+      }
+      if (min > max - minGap) {
+        min = max - minGap;
+        minInput.value = min;
+      }
+      if (max < min + minGap) {
+        max = min + minGap;
+        maxInput.value = max;
+      }
+
+      const range = maxLimit - minLimit;
+      const minPercent = ((min - minLimit) / range) * 100;
+      const maxPercent = ((max - minLimit) / range) * 100;
+
+      rangeTrack.style.setProperty("--min", minPercent + "%");
+      rangeTrack.style.setProperty("--max", maxPercent + "%");
+
+      minInput.style.top = "45%";
+      minInput.style.transform = "translateY(-0%)";
+      maxInput.style.top = "50%";
+      maxInput.style.transform = "translateY(-50%)";
+
+      minValue.style.left = `calc(${minPercent}% - 16px)`;
+      maxValue.style.left = `calc(${maxPercent}% - 16px)`;
+      minValue.style.top = "40px";
+      maxValue.style.top = "40px";
+      minValue.textContent = `$${min}`;
+      maxValue.textContent = `$${max}`;
+    }
+    setBudgetPositions();
+    minInput.addEventListener("input", setBudgetPositions);
+    maxInput.addEventListener("input", setBudgetPositions);
+    window.addEventListener("resize", setBudgetPositions);
+  }
+});
+
+// Contact form validation
